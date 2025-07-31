@@ -6,74 +6,80 @@ Thanks for your interest in contributing to this project! To keep things smooth,
 
 ## 🧱 Branching Strategy
 
-- Always branch off of `main`.
-- Use a clear and descriptive naming convention for your branches:
-  - `feature/your-feature-name`
-  - `bugfix/fix-what-it-does`
-  - `hotfix/urgent-fix-name`
-  - `chore/cleanup-or-setup-task`
+-   Always branch off of `main`.
+-   Use a clear and descriptive naming convention for your branches:
+    -   `feature/your-feature-name`
+    -   `bugfix/the-bug-being-fixed`
+    -   `hotfix/urgent-fix-name`
+    -   `chore/refactor-or-maintenance`
 
 ---
 
 ## 🚀 Development Workflow
 
-1.  **Pull the latest changes from `main`**
-    Before starting any work, make sure your `main` branch is up-to-date.
+1.  **Sync Your `main` Branch**
+    Before starting, pull the latest changes from the upstream repository.
     ```bash
     git checkout main
     git pull origin main
     ```
 
-2.  **Create a new branch**
-    Create a new branch from `main` using the naming convention above.
+2.  **Create a New Branch**
+    Create your new branch from `main` using the naming convention.
     ```bash
     git checkout -b feature/your-feature-name
     ```
 
 3.  **Develop and Commit**
-    Write your code, test it locally, and commit your changes with clear, descriptive messages.
-    - Follow a readable commit style (e.g., [Conventional Commits](https://www.conventionalcommits.org/)):
-      - `feat: added login functionality`
-      - `fix: correct typo in signup form`
-    - Break up large changes into multiple small, logical commits.
+    Write your code and tests. Commit your work in small, logical chunks with clear messages. We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification.
+    -   **Examples:**
+        -   `feat: add user authentication endpoint`
+        -   `fix: resolve null pointer exception in payment processing`
+        -   `docs: update contributing guidelines`
 
-4.  **Push your branch**
-    Push your new branch to the remote repository.
+4.  **Push Your Changes**
+    Push your branch to the remote repository.
     ```bash
     git push origin feature/your-feature-name
     ```
 
 5.  **Open a Pull Request (PR)**
-    - Go to the repository on GitHub.
-    - Click the "Compare & pull request" button for your new branch.
-    - Fill out the PR template with a clear description of your changes.
-    - Assign reviewers to your PR.
-    - Link any related issues by using keywords like `Closes #issue-number` in the PR description.
+    -   Go to the repository on GitHub and click the **"Compare & pull request"** button.
+    -   Fill out the PR template with a detailed description of your changes.
+    -   Link any related issues using keywords like `Closes #issue-number` in the description.
+    -   Assign at least one reviewer.
 
-6.  **Code Review**
-    - Wait for your PR to be reviewed. At least one approval is required before merging.
-    - Respond to any comments or change requests from the reviewers.
-    - If you push new commits to your branch, the approval status may be reset.
+6.  **Code Review and Merge**
+    -   Your PR requires at least one approval before it can be merged.
+    -   Respond to feedback and push any necessary changes. Pushing new commits may reset the approval status.
+    -   Once approved, a project maintainer will **squash and merge** your PR into `main`.
 
-7.  **Merge**
-    - Once the PR is approved and all checks have passed, the Scrum Master or a project maintainer will merge it into `main`.
-    - Squash merges are preferred to maintain a clean and readable commit history.
-    - The `main` branch is protected—direct pushes are disabled. All changes must go through a PR.
+---
+
+## 🧹 Branch Cleanup
+
+After your PR is merged, keep our repository tidy by deleting your branches.
+1.  **Delete the remote branch:** You can usually do this with the "Delete branch" button on the PR page after it's merged.
+2.  **Delete the local branch:** Switch back to `main` and remove the local copy.
+    ```bash
+    git checkout main
+    git branch -d feature/your-feature-name
+    ```
 
 ---
 
 ## 📦 Code Quality
 
--   **Format your code** before pushing to ensure a consistent style across the project.
--   **Write tests** where applicable to cover new features and bug fixes.
--   **Ensure it runs locally** without any errors before opening a pull request.
+-   **Format your code** using the project's established style guide before pushing.
+-   **Write tests** to cover new features and bug fixes.
+-   **Ensure all tests pass** locally before opening a pull request.
 
 ---
 
 ## 💡 Tips
 
--   Keep your Pull Requests focused and small. As a rule of thumb: one feature or one bug fix per PR.
--   Use **Draft PRs** to signal that your work is in progress and to get early feedback from the team.
--   Never commit sensitive information like `.env` files, credentials, or large binary files.
+-   Keep your Pull Requests **focused and small**. One feature or bug fix per PR.
+-   Use **Draft PRs** to signal work-in-progress and get early feedback.
+-   Never commit sensitive information like `.env` files, credentials, or large binaries.
 
----
+Thanks for helping us build something awesome! 💥
