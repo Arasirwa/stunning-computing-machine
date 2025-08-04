@@ -1,139 +1,112 @@
-Perfect! You want a high-level, polished, professional `README.md` with a structured layout and emoji flair—similar to the aviation one. Here's a version tailored for your movie analysis project in the same style:
+# 📽️ Movie Studio Case Analysis
+## 📊 Overview
+This project analyzes multiple movie databases to support strategic decision-making for a company entering the movie production industry. The goal is to find out the safest and risk-free way to break into the movie scene based on metadata from previously released movies
 
----
+## 🧠 Business Problem
+> Your company now sees all the big companies creating original video content, and they want to get in on the fun. They have decided to create a new movie studio, but they don’t know anything about creating movies. You are charged with exploring what types of films are currently doing the best at the box office. You must then translate those findings into actionable insights that the head of your company's new movie studio can use to help decide what type of films to create.
+> 
+## ❔Key Question Answered
+* Which genres are the most profitable?
+* What budget range optimizes return on investment (ROI)?
+* When should we release films for maximum financial gain?
 
-# 🎬 Movie Industry EDA — Box Office & Ratings Analysis
+## 📁 Dataset
+The following five datasets were used:
+* [Internet Movie Database (IMDb)](https://www.imdb.com/)
+* [Rotten Tomatoes](https://www.rottentomatoes.com/)
+* [The Movie Database (TMDb)](https://www.themoviedb.org/)
+* [The Numbers](https://www.the-numbers.com/)
+* [Box Office Mojo](https://www.boxofficemojo.com/)
 
-📊 **Overview**
-This project explores movie industry data to support strategic decision-making for a company entering film production. The goal is to identify genre trends, budget patterns, and viewer preferences that correlate with higher box office success.
+## ✅ Business Recommendations
+1. Start with Animation, Adventure, and Comedy genres as they appease a wide population and offer the greatest profit and ROI margins.
+2. A production budget of $ 1 million and $ 10 million is enough.
+3. Focus on releasing movies for the worldwide market rather than for the domestic market to generate greater profit margins.
+4. Focus on releasing and showcasing during the summer for maximum financial returns and Fridays for optimal weekend performance.
+5. Maintain a runtime of 90 -120 minutes for commercial viability.
 
----
+## ⚙️ Tools Used
+- Python: Data cleaning, preprocessing, exploratory analysis, and hypothesis testing (Pandas, Matplotlib, Seaborn, Scipy)
 
-🧠 **Business Problem**
-Your company is branching into the movie business and needs to make informed decisions about what kinds of films to produce. With limited knowledge of the entertainment industry, they rely on your analysis to determine:
+## 💻 Getting Started
 
-* Which genres are most profitable?
-* Do higher IMDb ratings equate to higher revenue?
-* What’s the ideal budget range to aim for commercial success?
+To explore or replicate this analysis locally, follow the steps below:
 
-Your task is to translate complex data into actionable insights that guide the studio's production strategy.
-
----
-
-📌 **Key Questions Answered**
-
-* Which genres consistently earn high box office revenue?
-* Do movie ratings correlate with commercial success?
-* What budget levels tend to lead to higher returns?
-* Are there trends in genre + rating + revenue combinations?
-* What strategic budget ranges should the studio target?
-
----
-
-📁 **Datasets Used**
-**Source:**
-
-* [Box Office Mojo Dataset](https://www.boxofficemojo.com/)
-* [IMDb SQLite Database](https://www.imdb.com/interfaces/)
-
-**Columns Extracted:**
-
-* `primary_title`, `genre`, `start_year`, `average_rating`, `num_votes`
-* `studio`, `domestic_gross`, `worldwide_gross`, `production_budget`
-
-**Data Processing Includes:**
-
-* Cleaning and merging datasets
-* Handling missing/null values
-* Standardizing genres and years
-* Creating visualizable and interpretable formats
-
----
-
-📊 **Visual Analysis**
-
-This project includes an exploratory notebook with visualizations using `matplotlib` and `seaborn`.
-
-Key visualizations:
-
-* 🎭 **Revenue by Genre** – Understand which genres dominate financially
-* 🌟 **Ratings vs Revenue Scatter** – Investigate the rating-profit relationship
-* 💵 **Budget vs Revenue** – Visualize return on investment ranges
-* 📈 **Trends Over Time** – Optional: Decade-wise performance
-
----
-
-✅ **Business Recommendations**
-
-* 🎯 **Focus on Action, Adventure, and Animation genres**
-  These genres lead in box office performance and are family-friendly or broad-appeal.
-
-* 🎬 **Mid-budget films (\$30M–\$70M) yield best returns**
-  Balances risk and reward; avoids the losses of overblown blockbusters.
-
-* 🌟 **Target movies with IMDb ratings ≥ 7.0**
-  Though not a guarantee, it's a strong signal of audience approval.
-
-* 📈 **Blend commercial appeal with critical acclaim**
-  A movie doesn’t need to win Oscars, but quality storytelling enhances returns.
-
----
-
-🛠️ **Tools Used**
-
-* `Python`: Data cleaning and EDA
-* `pandas`, `matplotlib`, `seaborn`, `sqlite3`
-* `Jupyter Notebook`: Interactive analysis
-* `PDF`: Stakeholder-friendly presentation of insights
-
----
-
-💻 **Getting Started**
-
-To replicate this project locally:
-
-1. 📦 **Clone the Repository**
+### 1. 📦 Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/movie-industry-analysis.git
-cd movie-industry-analysis
+git clone git@github.com:Arasirwa/stunning-computing-machine.git
+cd stunning-computing-machine
 ```
 
-2. 🐍 **Create & Activate a Conda Environment**
+### 2. 🐍 Set Up Your Conda Environment
+
+Make sure you have [Anaconda](https://www.anaconda.com/) installed. Then run:
 
 ```bash
-conda create --name movie-analysis python=3.10
-conda activate movie-analysis
+conda create --stunning-computing-machine python=3.10
+conda activate stunning-computing-machine
 ```
 
-3. 📚 **Install Requirements**
+### 3. 📚 Install Required Packages
+
+You can install the required Python libraries using:
 
 ```bash
-pip install pandas numpy matplotlib seaborn
+pip install pandas numpy matplotlib seaborn scipy
 ```
 
-4. 📁 **Set Up the Dataset Structure**
+### 4. 📁 Load the Dataset
+
+Ensure the dataset is organized in the following folder structure:
 
 ```
-data/ 
-notebooks/
-└── movie_analysis.ipynb
+Data/
+└── bom.movie_gross.csv.gz/
+└── im.db.zip
+└── rt.movie_info.tsv.gz
+└── rt.reviews.tsv.gz
+└── tmdb.movies.csv.gz
+└── tn.movie_budgets.csv.gz
 ```
 
-5. 🚀 **Launch the Notebook**
+Then, in your Python script or notebook, load the data using:
 
-```bash
-jupyter notebook notebooks/movie_analysis.ipynb
+```python
+import pandas as pd
+import sqlite3
+
+#-------going through SQl-----#
+def load_tables(connection):
+    table_names = pd.read_sql(
+        "SELECT name FROM sqlite_master WHERE type='table';", connection
+    )["name"].tolist()
+    sql_tables = {
+        table_name: pd.read_sql(f"SELECT * FROM {table_name}", connection)
+        for table_name in table_names
+    }
+    return sql_tables
+
+path = '../Data/im.db'
+conn = sqlite3.connect(path)
+
+imdb_tables = load_tables(conn)
+
+print(imdb_tables.keys())
+
+#-------CSV and TSV Data ------#
+
+bom_movie = pd.read_csv("../Data/bom.movie_gross.csv")
+rt_info = pd.read_csv("../Data/rt.movie_info.tsv", sep='\t', encoding='latin1')
+rt_reviews = pd.read_csv("../Data/rt.reviews.tsv", sep='\t', encoding='latin1')
+tmdb_df = pd.read_csv("../Data/tmdb.movies.csv")
+tn_budget = pd.read_csv("../Data/tn.movie_budgets.csv")
 ```
-
 ---
-
-🙌 **Acknowledgements**
-
-* Data sources: IMDb, Box Office Mojo
-* Moringa School – for providing structure and mentorship
-* Special thanks to my instructors and peers for feedback and collaboration
-
----
-
-Let me know if you want to include a link to your Tableau, Streamlit, or deploy this into a web dashboard! We can also add visuals inline or link to example outputs in your GitHub repo.
+## 🫱🏽‍🫲🏽 Acknowledgements
+Special thanks to the following datasets for making this project possible
+* [Internet Movie Database (IMDb)](https://www.imdb.com/)
+* [Rotten Tomatoes](https://www.rottentomatoes.com/)
+* [The Movie Database (TMDb)](https://www.themoviedb.org/)
+* [The Numbers](https://www.the-numbers.com/)
+* [Box Office Mojo](https://www.boxofficemojo.com/)
