@@ -10,7 +10,7 @@ This project analyzes multiple movie databases to support strategic decision-mak
 * What budget range optimizes return on investment (ROI)?
 * When should we release films for maximum financial gain?
 
-## 📁 Dataset
+##  Dataset
 The following five datasets were used:
 * [Internet Movie Database (IMDb)](https://www.imdb.com/)
 * [Rotten Tomatoes](https://www.rottentomatoes.com/)
